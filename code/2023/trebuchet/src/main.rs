@@ -3,14 +3,11 @@ use std::io::{BufReader, BufRead};
 use std::collections::HashMap;
 
 fn main() {
-
-
     let file = File::open("inputs/trebuchet.txt").expect("could not load file.");
     let reader = BufReader::new(file);
 
     let total_digit_sum: u32 = reader
         .lines()
-        .into_iter()
         .map(|line_result| line_result.expect("could not read line"))
         .map(|line| combine_first_and_last_digit(&line))
         .sum();
